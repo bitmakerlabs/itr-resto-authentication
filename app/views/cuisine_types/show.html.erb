@@ -1,0 +1,5 @@
+<h1><%= @cuisine_type.name %> Restaurants</h1>
+
+<% @cuisine_type.restaurants.each do |restaurant| %>
+  <p><%= restaurant.name %></p>
+<% end %>
