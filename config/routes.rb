@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'cuisine_types' => 'cuisine_types#index'
-  get 'cuisine_types/:id' => 'cuisine_types#show'
+  resources :cuisine_types, only: [:index, :show]
+  resources :restaurants do 
+    resources :reservations
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
