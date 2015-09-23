@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :users, only: [:new, :create]
+  get '/login' => 'sessions#new', as: :login
+  post '/login' => 'sessions#create', as: :post_login
+  delete '/logout' => 'sessions#destroy', as: :logout
   resources :cuisine_types, only: [:index, :show]
   resources :restaurants do 
     resources :reservations
